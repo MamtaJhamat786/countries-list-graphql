@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, TableBody, TableRow, TableCell, TableContainer, TableHead, Paper, Box, CircularProgress, Typography } from '@mui/material';
+import { Table, TableBody, TableRow, TableCell,TextField, TableContainer, TableHead, Paper, Box, CircularProgress, Typography } from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { GET_COUNTRIES } from '../queries/countries_list';
 import { useDebounce } from 'use-debounce'; 
@@ -21,14 +21,18 @@ const CountriesList: React.FC = () => {
 
     return (
         <Box>
-            <h2>Countries</h2>
-            <input type="text" value={countryCode} onChange={handleInputChange} placeholder="Enter country code" />
+            <h2>Countries List</h2>
+            <TextField
+            variant="outlined" type="text" 
+            autoComplete="off"
+            inputProps={{ maxLength: 2 }}
+            value={countryCode} onChange={handleInputChange} label="Enter country code" />
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650, padding: 20 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="center">Country Name</TableCell>
-                            <TableCell align="center">Country Code</TableCell>
+                            <TableCell align="center" sx={{ fontWeight: 'bold' }}>Country Code</TableCell>
+                            <TableCell align="center" sx={{ fontWeight: 'bold' }}>Country Name</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
