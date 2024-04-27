@@ -23,12 +23,14 @@ const CountriesList: React.FC = () => {
         <Box>
             <h2>Countries List</h2>
             <TextField
+            size="small"
             variant="outlined" type="text" 
             autoComplete="off"
+            sx={{marginBottom: "20px"}}
             inputProps={{ maxLength: 2 }}
             value={countryCode} onChange={handleInputChange} label="Enter country code" />
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650, padding: 20 }} aria-label="simple table">
+                <Table sx={{ padding: 20 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell align="center" sx={{ fontWeight: 'bold' }}>Country Code</TableCell>
